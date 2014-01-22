@@ -37,6 +37,10 @@ function start(config) {
   console.log('npm_lazy cache directory:', path.normalize(config.cacheDirectory));
 };
 
+process.on('uncaughtException', function(e) {
+  console.log('uncaught:');
+  console.log(e);
+});
 
 // if this module is the script being run, then load the default config and run
 // makes it possible to call `node server.js` and have it work like before.
